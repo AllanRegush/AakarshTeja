@@ -47,5 +47,6 @@ __I am *Aakarsh Teja* a Computer Science Student from VIT University. I am very 
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=aakarshteja" alt="Aakarsh Teja Profile visits" /></p>
 
 ### Projects 💪
-<!--START_SECTION:data-section--> 
+<!--START_SECTION:data-section-->
+
 <!--END_SECTION:data-section-->
