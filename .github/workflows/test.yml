@@ -1,33 +1,16 @@
-# This is a basic workflow to help you get started with Actions
+on: [push]
 
-name: Test
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  table:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    name: Update README from json data
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-     # For projects  
-      - name: Write Projects to Readme.md file
-        uses: aakarshteja/gh-actions-html-table-generator@v1.0-alpha1
-        with:
-          json-file-path: 'data.json'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          columns: 1
-          object-field-names: '[ "number", "projectName", "url" ]'
-          html-cell: '<td align="center"><a href="{{ url }}">{{ number }}.{{ projectName }}</a> </td>'  
+    - uses: actions/checkout@v2
+    - name: Read/Write data into README
+      uses: eddiejaoude/github-actions-reader-writer@v0.1
+      with:
+        json-file-path: 'data.json'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        columns: 1
+        object-field-names: '[ "number", "projectName", "url" ]'
+        html-cell: '<td align="center"><a href="{{ url }}">{{ number }}.{{ projectName }}</a> </td>'  
